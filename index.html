@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhaka Clock</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Additional styles can be added here */
+  </style>
+</head>
+<body class="bg-black flex items-center justify-center h-screen">
+  <div class="text-center">
+    <div id="clock" class="text-9xl text-white font-bold"></div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Dhaka', hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      const timeString = now.toLocaleTimeString('en-US', options);
+      document.getElementById('clock').textContent = timeString;
+    }
+
+    // Initial call to display the clock
+    updateClock();
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
